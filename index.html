@@ -7,169 +7,206 @@
   <meta name="description" content="Webwise VPN: protection, privacy and safe browsing for your phone. Unlimited VPN, Safe Browsing and Threat Protection." />
   <link rel="canonical" href="https://webwiselabs.com/" />
   <meta name="robots" content="index,follow" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-:root{--purple:#6F2FFF;--orange:#FF6230;--bg:#ffffff;--text:#111;--muted:#666;--card:#ffffff;--border:#EFEFF6;--max:1100px;}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#fff 0%, #FBFBFF 100%);color:var(--text);line-height:1.55}
-a{color:inherit}
-.container{max-width:var(--max);margin:0 auto;padding:24px}
-.header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 0}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(111,47,255,.10);border:1px solid var(--border)}
-.brand .name{font-weight:800;letter-spacing:.2px}
-.nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.btn{appearance:none;border:1px solid var(--border);background:#fff;color:#111;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none}
-.btn.primary{background:var(--purple);border-color:var(--purple);color:#fff}
-.btn.ghost{background:transparent}
-.hero{padding:26px 0 18px}
-.h1{font-size:42px;line-height:1.15;margin:10px 0 8px}
-.lead{color:var(--muted);max-width:850px;margin:0}
-.tags{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 0}
-.tag{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--border);font-weight:700;color:#222}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px}
-.section{padding:26px 0;border-top:1px solid var(--border)}
-.section:first-of-type{border-top:none}
-.h2{font-size:26px;margin:0 0 10px}
-.p{margin:0;color:var(--muted)}
-.kv{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
-.kv .item{padding:14px;border:1px solid var(--border);border-radius:14px;background:#fff}
-.kv .item b{display:block;margin-bottom:6px}
-.faq details{border:1px solid var(--border);border-radius:14px;background:#fff;padding:12px 14px}
-.faq details+details{margin-top:10px}
-.faq summary{font-weight:800;cursor:pointer}
-.footer{padding:22px 0;border-top:1px solid var(--border);color:var(--muted);font-size:14px}
-.footer .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.small-links a{color:var(--purple);text-decoration:none;font-weight:700}
-.small-links a:hover{text-decoration:underline}
-@media (max-width:880px){.h1{font-size:34px}.kv{grid-template-columns:1fr}}
-</style>
+    :root{
+      --purple:#6F2FFF;
+      --orange:#FF6230;
+      --text:#111;
+      --muted:#666;
+      --border:#EFEFF6;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg,#fff 0%, #FBFBFF 100%);
+      color:var(--text);
+      line-height:1.55;
+    }
+    .container{max-width:var(--max);margin:0 auto;padding:24px}
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 0;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brand img{
+      height:36px;
+      width:auto;
+    }
+    .brand{
+      font-weight:800;
+      font-size:18px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .btn{
+      padding:10px 16px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .btn.primary{
+      background:var(--purple);
+      border-color:var(--purple);
+      color:#fff;
+    }
+    .hero{padding:32px 0 20px}
+    h1{
+      font-size:42px;
+      line-height:1.15;
+      margin:0 0 8px;
+    }
+    .lead{color:var(--muted);max-width:850px}
+    .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .tag{
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-weight:700;
+    }
+    section{padding:28px 0;border-top:1px solid var(--border)}
+    section:first-of-type{border-top:none}
+    h2{font-size:26px;margin:0 0 10px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px;
+      background:#fff;
+    }
+    footer{
+      border-top:1px solid var(--border);
+      padding:22px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    footer .row{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    footer a{
+      color:var(--purple);
+      text-decoration:none;
+      font-weight:700;
+    }
+    @media(max-width:900px){
+      h1{font-size:34px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
 </head>
+
 <body>
-  <div class="container">
-    <header class="header">
-      <a class="brand" href="index.html" aria-label="Webwise VPN Home">
-        <div class="logo">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-  <path d="M12 2l8 4v6c0 5-3.5 9.4-8 10-4.5-.6-8-5-8-10V6l8-4Z" stroke="#6F2FFF" stroke-width="2" stroke-linejoin="round"/>
-  <path d="M8.7 12.2l2.1 2.2 4.7-5" stroke="#6F2FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<div class="container">
+
+<header>
+  <a class="brand" href="index.html">
+    <img src="https://github.com/Webwise-Labs/webwise/blob/main/images/Logo.png" alt="Webwise VPN Logo">
+    <span>Webwise VPN</span>
+  </a>
+  <button class="btn primary" onclick="openComingSoon()">Download Webwise</button>
+</header>
+
+<section class="hero">
+  <h1>Be wise on the web with Webwise VPN</h1>
+  <p class="lead">All-in protection & privacy suite for your phone</p>
+  <div class="tags">
+    <div class="tag">Unlimited VPN</div>
+    <div class="tag">Safe Browsing</div>
+    <div class="tag">Threat Protection</div>
+  </div>
+</section>
+
+<section>
+  <h2>What’s a VPN?</h2>
+  <p class="lead">
+    A VPN (Virtual Private Network) encrypts your internet connection and routes it through a secure server.
+    This protects your privacy, especially on public Wi-Fi, and helps reduce tracking.
+  </p>
+</section>
+
+<section>
+  <h2>Why Webwise VPN?</h2>
+  <div class="grid">
+    <div class="card"><b>Unlimited & Global VPN</b><br>Servers across regions for privacy and freedom.</div>
+    <div class="card"><b>Ultra-fast streaming</b><br>Optimized for speed and stable connections.</div>
+    <div class="card"><b>Up to 10 devices</b><br>Protect multiple devices with one plan.</div>
+    <div class="card"><b>Safe Browsing</b><br>Scan links before they open to avoid scams.</div>
+    <div class="card"><b>Threat Protection</b><br>Blocks phishing, malware, ads & trackers.</div>
+    <div class="card"><b>Premium Support</b><br>Help whenever you need it.</div>
+  </div>
+
+  <div style="margin-top:18px">
+    <button class="btn primary" onclick="openComingSoon()">Download Now</button>
+  </div>
+</section>
+
+<section>
+  <h2>Frequently Asked Questions</h2>
+
+  <details>
+    <summary>Is there a free plan?</summary>
+    <p class="lead">Yes. Webwise includes limited free access so you can try the product before upgrading.</p>
+  </details>
+
+  <details>
+    <summary>Which devices are supported?</summary>
+    <p class="lead">Webwise VPN currently supports Android. iOS support will be added later.</p>
+  </details>
+
+  <details>
+    <summary>Do you keep logs?</summary>
+    <p class="lead">No. Webwise follows a strict no-logs policy and does not store browsing activity, VPN traffic, or DNS queries.</p>
+  </details>
+</section>
+
+<footer>
+  <div class="row">
+    <div>
+      <b>Webwise Labs LLC</b><br>
+      Gould St Ste R, Sheridan, Wyoming, USA<br>
+      <a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a>
+    </div>
+    <div>
+      <a href="secure-vpn.html">Secure VPN</a> ·
+      <a href="safe-browsing.html">Safe Browsing</a> ·
+      <a href="threat-protection.html">Threat Protection</a> ·
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
 </div>
-        <div class="name">Webwise VPN</div>
-      </a>
-      <nav class="nav">
-        <button class="btn primary" type="button" onclick="openComingSoon()">Download Webwise</button>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <div class="h1">Be wise on the web with Webwise VPN</div>
-      <p class="lead">All in protection &amp; privacy suite for your phone</p>
-      <div class="tags" aria-label="Core features">
-        <div class="tag">Unlimited VPN</div>
-        <div class="tag">Safe Browsing</div>
-        <div class="tag">Threat Protection</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="grid">
-        <div class="card" style="grid-column: span 12;">
-          <div class="h2">What’s a VPN?</div>
-          <p class="p">
-            A VPN (Virtual Private Network) encrypts your internet connection and routes it through a secure server.
-            This helps protect your privacy on public Wi‑Fi, reduces tracking, and keeps your connection more secure.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="h2">Why Webwise VPN?</div>
-      <div class="kv">
-        <div class="item"><b>Unlimited &amp; Global VPN</b><span class="p">Connect across regions for privacy and freedom.</span></div>
-        <div class="item"><b>Ultra fast streaming</b><span class="p">Optimized for speed and stable connections.</span></div>
-        <div class="item"><b>Up to 10 devices</b><span class="p">Protect your devices with one plan.</span></div>
-        <div class="item"><b>Safe Browsing</b><span class="p">Scan links before they open to avoid scams.</span></div>
-        <div class="item"><b>Threat Protection</b><span class="p">Blocks phishing, malware hosts, ads &amp; trackers.</span></div>
-        <div class="item"><b>Premium Support</b><span class="p">Help when you need it — we’re here.</span></div>
-      </div>
-
-      <div style="margin-top:16px;">
-        <button class="btn primary" type="button" onclick="openComingSoon()">Download Now</button>
-      </div>
-    </section>
-
-    <section class="section faq">
-      <div class="h2">Frequently Asked Questions</div>
-
-      <details>
-        <summary>Is there a free plan?</summary>
-        <div class="p" style="margin-top:8px;">Yes. Webwise includes limited free access so you can try the product before upgrading to a paid plan.</div>
-      </details>
-
-      <details>
-        <summary>Which devices are supported?</summary>
-        <div class="p" style="margin-top:8px;">Webwise VPN currently supports Android. iOS support will be added later.</div>
-      </details>
-
-      <details>
-        <summary>Do you keep logs?</summary>
-        <div class="p" style="margin-top:8px;">No. Webwise is built with a strict no‑logs approach — we do not store browsing history, VPN traffic, or DNS queries.</div>
-      </details>
-
-      <details>
-        <summary>Where can I learn more about features?</summary>
-        <div class="p" style="margin-top:8px;">
-          Read about <a class="small-links" href="safe-browsing.html">Safe Browsing</a>, <a class="small-links" href="secure-vpn.html">Secure VPN</a>, and <a class="small-links" href="threat-protection.html">Threat Protection</a>.
-        </div>
-      </details>
-    </section>
-
-    <footer class="footer">
-      <div class="row">
-        <div>
-          <div style="font-weight:800;color:#111;">Webwise Labs LLC</div>
-          Wyoming<br/>
-          Gould St Ste R, Sheridan, Wyoming, USA<br/>
-          Support: <a class="small-links" href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a>
-        </div>
-        <div class="small-links" style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
-          <a href="safe-browsing.html">Safe Browsing</a>
-          <a href="secure-vpn.html">Secure VPN</a>
-          <a href="threat-protection.html">Threat Protection</a>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  
-<dialog id="comingSoon" style="border:none;border-radius:16px;padding:0;max-width:520px;width:92vw;">
-  <div style="padding:18px 18px 14px;background:#fff;border:1px solid #EFEFF6;border-radius:16px;">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
-      <div>
-        <div style="font-weight:900;font-size:18px;">Coming soon</div>
-        <div style="color:#666;margin-top:4px;">Webwise VPN for Android is launching shortly. Thanks for your patience.</div>
-      </div>
-      <button onclick="closeComingSoon()" aria-label="Close" style="border:none;background:transparent;font-size:22px;cursor:pointer;line-height:1;">×</button>
-    </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">
-      <button class="btn primary" onclick="closeComingSoon()">Okay</button>
-      <a class="btn" href="mailto:hello@webwiselabs.com">Contact support</a>
-    </div>
-  </div>
-</dialog>
-
-  
 <script>
-function openComingSoon(){ const m=document.getElementById('comingSoon'); if(m){m.showModal();} }
-function closeComingSoon(){ const m=document.getElementById('comingSoon'); if(m){m.close();} }
+function openComingSoon(){
+  alert("Coming soon");
+}
 </script>
 
 </body>
