@@ -1,88 +1,161 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Safe Browsing – Webwise VPN</title>
-  <meta name="description" content="Learn how Webwise Safe Browsing protects you using AI-powered link scanning.">
+  <meta name="description" content="AI-powered link scanning that checks URLs before they open to protect you from scams." />
+  <link rel="canonical" href="https://webwiselabs.com/safe-browsing.html" />
+  <meta name="robots" content="index,follow" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root{--purple:#6F2FFF;--muted:#666;--max-width:1100px}
-    body{margin:0;font-family:'Poppins',sans-serif;background:#FBFBFF;color:#111;line-height:1.55}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-    header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand img{width:46px;height:46px;border-radius:10px}
-    .btn{padding:10px 14px;border-radius:8px;font-weight:600;cursor:pointer;border:none}
-    .primary{background:var(--purple);color:#fff}
-    .link{background:none;color:var(--purple);text-decoration:none;font-weight:600}
-    h2{font-size:32px;margin-top:0}
-    h3{margin-top:22px}
-    ul{padding-left:20px}
-    footer{margin-top:40px;padding:20px 0;border-top:1px solid #eee;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap}
-    a{color:var(--purple);text-decoration:none}
+    :root{
+      --purple:#6F2FFF;
+      --orange:#FF6230;
+      --text:#111;
+      --muted:#666;
+      --border:#EFEFF6;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg,#fff 0%, #FBFBFF 100%);
+      color:var(--text);
+      line-height:1.55;
+    }
+    .container{max-width:var(--max);margin:0 auto;padding:24px}
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 0;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      font-size:18px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .brand img{height:36px;width:auto;border-radius:10px}
+    .btn{
+      padding:10px 16px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .btn.primary{background:var(--purple);border-color:var(--purple);color:#fff}
+
+    section{padding:28px 0;border-top:1px solid var(--border)}
+    section:first-of-type{border-top:none}
+
+    h1{font-size:36px;line-height:1.15;margin:0 0 8px}
+    h2{font-size:24px;margin:0 0 10px}
+
+    .lead{color:var(--muted);max-width:900px;margin:0}
+    .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
+    ul{margin:10px 0 0;padding-left:18px}
+
+    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px}
+    footer .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    footer a{color:var(--purple);text-decoration:none;font-weight:700}
+
+    @media(max-width:900px){h1{font-size:30px}}
   </style>
 </head>
+
 <body>
 <div class="container">
 
 <header>
-  <div class="brand">
-    <img src="https://github.com/Webwise-Labs/webwise/blob/main/images/Logo.png?raw=true" alt="Webwise Logo">
-    <h1>Webwise VPN</h1>
-  </div>
-  <nav>
-    <a href="index.html" class="link">← Home</a>
-  </nav>
+  <a class="brand" href="index.html">
+    <img src="images/Logo.png" alt="Webwise VPN Logo">
+    <span>Webwise VPN</span>
+  </a>
+  <button class="btn primary" onclick="openComingSoon()">Download Webwise</button>
 </header>
 
-<main>
-<h2>Safe Browsing</h2>
+<section>
+  <h1>Safe Browsing</h1>
+  <p class="lead">AI-powered link scanning that checks URLs before they open to protect you from scams.</p>
+</section>
 
+<section>
+  <h2>What is Safe Browsing?</h2>
+  <p class="lead">Webwise Safe Browsing helps protect you from scams and unsafe websites by checking links before they open. If a link looks risky, Webwise blocks it instantly so you can browse with confidence.</p>
+  <div class="card" style="margin-top:14px;">
+    <b>No URL logs are stored.</b>
+    <p class="lead" style="margin-top:6px;">We don’t keep a history of the links you scan. We only track anonymous totals like how many unsafe links were blocked.</p>
+  </div>
+</section>
 
-<p>Webwise Safe Browsing protects you from unsafe and harmful websites using AI‑powered link scanning. It keeps you safer every time you tap a link on your device.</p>
+<section>
+  <h2>How it works</h2>
+  <p class="lead">When Safe Browsing is enabled, Webwise checks the URL you click using our threat detection engine. If the link is safe, it opens in your preferred browser. If it’s unsafe, Webwise blocks it and shows a warning.</p>
+  <ul>
+    <li>You tap a link from any app</li>
+    <li>Webwise captures the URL and runs a safety check</li>
+    <li>If safe, it opens in your preferred browser</li>
+    <li>If unsafe, it is blocked and you’re alerted</li>
+  </ul>
+</section>
 
-<h3>AI‑Powered Link Scanning</h3>
-<ul>
-  <li>Every link you tap is scanned by our AI threat engine.</li>
-  <li>Instant detection of phishing, malware, scams, harmful redirects, and suspicious scripts.</li>
-  <li>No link logs or content logs are ever stored.</li>
-</ul>
+<section>
+  <h2>Can I try it for free?</h2>
+  <p class="lead">Yes. After a successful sign-in, you get <b>10 free scans</b> so you can see Safe Browsing protecting you from scams before purchasing a plan.</p>
+</section>
 
-<h3>How Safe Browsing Works</h3>
-<p>Webwise requires browser-access permission so it can scan links before they open.</p>
-<ul>
-  <li>Tap on any link → Webwise scans it in real time.</li>
-  <li>If safe → It opens in your preferred browser.</li>
-  <li>If harmful → Webwise blocks the link and alerts you instantly.</li>
-</ul>
+<section>
+  <h2>What permissions does it need on my phone?</h2>
+  <p class="lead">Nothing private. Webwise only takes browser permission so it can capture the URL when you click from any app, run threat analysis, and then open it in your preferred browser.</p>
+  <ul>
+    <li>No other personal information is stored</li>
+    <li>No URL logs are stored</li>
+    <li>We only record total counts of blocked unsafe links</li>
+  </ul>
+</section>
 
-<h3>Your Free Scans</h3>
-<p>Every user gets <strong>10 free AI scans daily</strong>. Paid plans unlock unlimited scans.</p>
-
-<h3>Link Scan Stats</h3>
-<ul>
-  <li>Total links scanned</li>
-  <li>Total unsafe links blocked</li>
-</ul>
-
-<p>No logs of URLs or content are collected. Webwise only stores anonymous threat counts.</p>
-
-
-</main>
+<section>
+  <h2>How to turn off Safe Browsing</h2>
+  <p class="lead">Change the default browser to your preferred browser and Webwise will not check the safety of URLs you click.</p>
+</section>
 
 <footer>
-  <div>
-    <strong>Webwise Labs LLC</strong><br>Gould St Ste R, Sheridan, Wyoming, USA
-  </div>
-  <div>
-    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a><br>
-    support: hello@webwiselabs.com
+  <div class="row">
+    <div>
+      <b>Webwise Labs LLC</b><br>
+      Gould St Ste R, Sheridan, Wyoming, USA<br>
+      <a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a>
+    </div>
+    <div>
+      <a href="secure-vpn.html">Secure VPN</a> ·
+      <a href="safe-browsing.html">Safe Browsing</a> ·
+      <a href="threat-protection.html">Threat Protection</a> ·
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms</a>
+    </div>
   </div>
 </footer>
 
 </div>
+
+<script>
+function openComingSoon(){
+  alert("Coming soon");
+}
+</script>
+
 </body>
 </html>
