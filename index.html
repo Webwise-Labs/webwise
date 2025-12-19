@@ -30,6 +30,7 @@
       line-height:1.55;
     }
     .container{max-width:var(--max);margin:0 auto;padding:24px}
+
     header{
       display:flex;
       justify-content:space-between;
@@ -42,17 +43,13 @@
       display:flex;
       align-items:center;
       gap:10px;
-    }
-    .brand img{
-      height:36px;
-      width:auto;
-    }
-    .brand{
       font-weight:800;
       font-size:18px;
       text-decoration:none;
       color:inherit;
     }
+    .brand img{height:36px;width:auto;border-radius:10px}
+
     .btn{
       padding:10px 16px;
       border-radius:10px;
@@ -61,62 +58,35 @@
       font-weight:700;
       cursor:pointer;
     }
-    .btn.primary{
-      background:var(--purple);
-      border-color:var(--purple);
-      color:#fff;
-    }
+    .btn.primary{background:var(--purple);border-color:var(--purple);color:#fff}
+
     .hero{padding:32px 0 20px}
-    h1{
-      font-size:42px;
-      line-height:1.15;
-      margin:0 0 8px;
-    }
+    h1{font-size:42px;line-height:1.15;margin:0 0 8px}
     .lead{color:var(--muted);max-width:850px}
+
     .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .tag{
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:#fff;
-      font-weight:700;
-    }
+    .tag{padding:8px 14px;border-radius:999px;border:1px solid var(--border);background:#fff;font-weight:700}
+
     section{padding:28px 0;border-top:1px solid var(--border)}
     section:first-of-type{border-top:none}
     h2{font-size:26px;margin:0 0 10px}
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    .card{
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:16px;
-      background:#fff;
-    }
-    footer{
-      border-top:1px solid var(--border);
-      padding:22px 0;
-      color:var(--muted);
-      font-size:14px;
-    }
-    footer .row{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    footer a{
-      color:var(--purple);
-      text-decoration:none;
-      font-weight:700;
-    }
-    @media(max-width:900px){
-      h1{font-size:34px}
-      .grid{grid-template-columns:1fr}
-    }
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+    .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
+
+    /* Premium FAQ */
+    .faq details{border:1px solid var(--border);border-radius:14px;padding:14px 16px;background:#fff;margin-bottom:12px}
+    .faq summary{font-weight:700;cursor:pointer;list-style:none;position:relative;padding-right:24px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"›";position:absolute;right:0;top:0;transform:rotate(90deg);font-size:20px;color:var(--purple);transition:transform .2s ease}
+    .faq details[open] summary::after{transform:rotate(-90deg)}
+    .faq details p{margin-top:10px}
+
+    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px}
+    footer .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    footer a{color:var(--purple);text-decoration:none;font-weight:700}
+
+    @media(max-width:900px){h1{font-size:34px}.grid{grid-template-columns:1fr}}
   </style>
 </head>
 
@@ -133,7 +103,7 @@
 
 <section class="hero">
   <h1>Be wise on the web with Webwise VPN</h1>
-  <p class="lead">All-in protection & privacy suite for your phone</p>
+  <p class="lead">All-in protection &amp; privacy suite for your phone</p>
   <div class="tags">
     <div class="tag">Unlimited VPN</div>
     <div class="tag">Safe Browsing</div>
@@ -152,11 +122,11 @@
 <section>
   <h2>Why Webwise VPN?</h2>
   <div class="grid">
-    <div class="card"><b>Unlimited & Global VPN</b><br>Servers across regions for privacy and freedom.</div>
+    <div class="card"><b>Unlimited &amp; Global VPN</b><br>Servers across regions for privacy and freedom.</div>
     <div class="card"><b>Ultra-fast streaming</b><br>Optimized for speed and stable connections.</div>
     <div class="card"><b>Up to 10 devices</b><br>Protect multiple devices with one plan.</div>
     <div class="card"><b>Safe Browsing</b><br>Scan links before they open to avoid scams.</div>
-    <div class="card"><b>Threat Protection</b><br>Blocks phishing, malware, ads & trackers.</div>
+    <div class="card"><b>Threat Protection</b><br>Blocks phishing, malware, ads &amp; trackers.</div>
     <div class="card"><b>Premium Support</b><br>Help whenever you need it.</div>
   </div>
 
@@ -165,22 +135,32 @@
   </div>
 </section>
 
-<section>
+<section class="faq">
   <h2>Frequently Asked Questions</h2>
 
   <details>
     <summary>Is there a free plan?</summary>
-    <p class="lead">Yes. Webwise includes limited free access so you can try the product before upgrading.</p>
+    <p class="lead">Yes. You can get free VPN sessions daily by watching an ad so you can see Webwise VPN in action before upgrading to unlock all premium features.</p>
   </details>
 
   <details>
-    <summary>Which devices are supported?</summary>
-    <p class="lead">Webwise VPN currently supports Android. iOS support will be added later.</p>
+    <summary>Do you store any logs?</summary>
+    <p class="lead">No. Webwise follows a strict no-logs policy and does not store VPN traffic or any of your browsing activity.</p>
   </details>
 
   <details>
-    <summary>Do you keep logs?</summary>
-    <p class="lead">No. Webwise follows a strict no-logs policy and does not store browsing activity, VPN traffic, or DNS queries.</p>
+    <summary>Will Webwise affect my internet?</summary>
+    <p class="lead">A VPN may slightly affect speed, but Webwise is optimized for fast, stable connections. Choosing a nearby server usually gives the best performance.</p>
+  </details>
+
+  <details>
+    <summary>Why should I pay for a VPN service?</summary>
+    <p class="lead">Better services come at a price. You're more likely to encounter sluggish connections and inadequate security with free VPN providers since they can't compete with the level of service quality and internet security that a paid provider can supply. If you use an always-free VPN, its designers have to generate money somehow, so they may shower you with advertisements, track and sell your data, or even exploit your device to route other people’s traffic through – a reliable paid VPN company won’t. You may browse with more online privacy and without worrying about data or bandwidth limits when you use Webwise VPN since you can be confident that your personal information is secure thanks to state-of-the-art encryption.</p>
+  </details>
+
+  <details>
+    <summary>What encryption is used by Webwise?</summary>
+    <p class="lead">Webwise is built with secure and modern WireGuard® protocol, using ChaCha20 encryption which is widely recognized as strongest encryption protocol and used by military institutions, governments and cybersecurity professionals around the world.</p>
   </details>
 </section>
 
