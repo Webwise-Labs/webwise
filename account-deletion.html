@@ -13,19 +13,75 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{--purple:#6F2FFF;--text:#111;--muted:#666;--border:#EFEFF6;--max:1100px}
+    :root{
+      --purple:#6F2FFF;
+      --orange:#FF6230;
+      --text:#111;
+      --muted:#666;
+      --border:#EFEFF6;
+      --max:1100px;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Poppins,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#fff 0%,#FBFBFF 100%);color:var(--text);line-height:1.55}
-    .container{max-width:var(--max);margin:auto;padding:24px}
-    header,footer{border-bottom:1px solid var(--border);padding:16px 0}
-    footer{border-top:1px solid var(--border);border-bottom:none;margin-top:24px}
-    h1{font-size:36px;margin:0 0 8px}
-    h2{font-size:22px;margin:20px 0 10px}
-    .lead{color:var(--muted)}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg,#fff 0%, #FBFBFF 100%);
+      color:var(--text);
+      line-height:1.55;
+    }
+    .container{max-width:var(--max);margin:0 auto;padding:24px}
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 0;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      font-size:18px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .brand img{height:36px;width:auto;border-radius:10px}
+
+    .btn{
+      padding:10px 16px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-block;
+    }
+    .btn.primary{background:var(--purple);border-color:var(--purple);color:#fff}
+
+    section{padding:28px 0;border-top:1px solid var(--border)}
+    section:first-of-type{border-top:none}
+
+    h1{font-size:36px;line-height:1.15;margin:0 0 8px}
+    h2{font-size:22px;margin:0 0 10px}
+    .lead{color:var(--muted);max-width:900px;margin:0}
+
     .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
-    .callout{border:1px solid rgba(111,47,255,.25);background:rgba(111,47,255,.06);border-radius:14px;padding:14px;margin-top:12px}
-    a{color:var(--purple);font-weight:700;text-decoration:none}
-    ul,ol{padding-left:18px}
+    .stack{display:grid;gap:12px}
+
+    ul,ol{margin:10px 0 0;padding-left:18px}
+    li{margin:6px 0}
+
+    .callout{border:1px solid rgba(111,47,255,.25);background:rgba(111,47,255,.06);border-radius:14px;padding:14px}
+
+    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px}
+    footer .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    footer a{color:var(--purple);text-decoration:none;font-weight:700}
+
+    @media(max-width:900px){h1{font-size:30px}}
   </style>
 </head>
 
@@ -33,22 +89,36 @@
 <div class="container">
 
 <header>
-  <h1>Account Deletion</h1>
-  <p class="lead">For <b>Webwise VPN</b> by <b>Webwise Labs LLC</b></p>
+  <a class="brand" href="index.html">
+    <img src="https://github.com/Webwise-Labs/webwise/blob/main/images/Logo.png?raw=true" alt="Webwise VPN Logo">
+    <span>Webwise VPN</span>
+  </a>
+  <a class="btn" href="privacy.html">← Privacy Policy</a>
 </header>
 
 <section>
-  <h2>How to request account deletion</h2>
-  <ol>
-    <li>Email us at <a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a></li>
-    <li>Subject line: <b>Account Deletion Request</b></li>
-    <li>Send the request from your registered email address</li>
-  </ol>
+  <h1>Account Deletion</h1>
+  <p class="lead">This page explains how to request deletion of your <b>Webwise VPN</b> account and associated data. Webwise VPN is developed by <b>Webwise Labs LLC</b>.</p>
+</section>
 
-  <div class="callout">
-    <b>Processing time:</b> We process deletion requests within <b>30 days</b> of verification.
-    <br><br>
-    We may request additional verification to prevent unauthorized deletion requests.
+<section>
+  <div class="card stack">
+    <div>
+      <h2>How to request account deletion</h2>
+      <p class="lead">To request deletion, email us from your registered email address.</p>
+    </div>
+
+    <ol>
+      <li>Send an email to <b><a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a></b></li>
+      <li>Use the subject line: <b>Account Deletion Request</b></li>
+      <li>Include your registered email address in the message</li>
+    </ol>
+
+    <div class="callout">
+      <b>Processing time:</b> We process account deletion requests within <b>30 days</b> of verification.
+      <br><br>
+      We may request additional verification to prevent unauthorized deletion requests.
+    </div>
   </div>
 </section>
 
@@ -58,13 +128,13 @@
     <ul>
       <li>Account email address</li>
       <li>Account identifier</li>
-      <li>Associated account preferences</li>
+      <li>Associated account preferences (if any)</li>
     </ul>
   </div>
 </section>
 
 <section>
-  <h2>What data we do NOT collect</h2>
+  <h2>What data Webwise does not collect</h2>
   <div class="card">
     <ul>
       <li>Browsing history</li>
@@ -72,7 +142,7 @@
       <li>DNS queries</li>
       <li>Websites or URLs you visit</li>
     </ul>
-    <p class="lead"><b>Webwise follows a strict no-logs policy.</b></p>
+    <p class="lead" style="margin-top:10px;"><b>Webwise follows a strict no-logs approach.</b></p>
   </div>
 </section>
 
@@ -80,16 +150,33 @@
   <h2>Data retention</h2>
   <div class="card">
     <ul>
-      <li>Anonymous, non-identifiable analytics may be retained</li>
-      <li>Billing records are handled by Google Play / Apple App Store as required by law</li>
+      <li>Anonymous, non-identifiable analytics may be retained for product improvement.</li>
+      <li>Billing and refund handling is managed by Google Play / Apple App Store and records may be retained as required by applicable law.</li>
     </ul>
   </div>
 </section>
 
+<section>
+  <h2>Need help?</h2>
+  <div class="card">
+    <p class="lead">If you have questions about account deletion or privacy, contact us at <b><a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a></b>.</p>
+  </div>
+</section>
+
 <footer>
-  <p class="lead">
-    Questions? Contact <a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a>
-  </p>
+  <div class="row">
+    <div>
+      <b>Webwise Labs LLC</b><br>
+      Gould St Ste R, Sheridan, Wyoming, USA
+    </div>
+    <div>
+      <a href="secure-vpn.html">Secure VPN</a> ·
+      <a href="safe-browsing.html">Safe Browsing</a> ·
+      <a href="threat-protection.html">Threat Protection</a> ·
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
 </footer>
 
 </div>
