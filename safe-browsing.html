@@ -4,158 +4,550 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Safe Browsing – Webwise VPN</title>
-  <meta name="description" content="AI-powered link scanning that checks URLs before they open to protect you from scams." />
+  <meta name="description" content="AI-powered link scanning that checks URLs before they open to help protect you from scams, phishing, and unsafe links on Android and iOS." />
   <link rel="canonical" href="https://webwiselabs.com/safe-browsing.html" />
   <meta name="robots" content="index,follow" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --purple:#6F2FFF;
-      --orange:#FF6230;
-      --text:#111;
-      --muted:#666;
-      --border:#EFEFF6;
-      --max:1100px;
+    :root {
+      --purple: #6D28D9;
+      --purple-2: #7C3AED;
+      --purple-3: #8B5CF6;
+      --purple-dark: #25124D;
+      --purple-soft: #F7F3FF;
+      --purple-light: #FCFAFF;
+      --text: #111827;
+      --muted: #536079;
+      --border: #E5E7EB;
+      --white: #FFFFFF;
+      --shadow: 0 24px 70px rgba(109, 40, 217, 0.18);
+      --radius: 28px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      background:linear-gradient(180deg,#fff 0%, #FBFBFF 100%);
-      color:var(--text);
-      line-height:1.55;
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      background: var(--purple-soft);
+      line-height: 1.6;
     }
-    .container{max-width:var(--max);margin:0 auto;padding:24px}
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:16px 0;
-      flex-wrap:wrap;
-      gap:12px;
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 72px 0; }
+    .section-white { background: var(--white); }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 243, 255, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(109, 40, 217, 0.08);
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:800;
-      font-size:18px;
-      text-decoration:none;
-      color:inherit;
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
     }
-    .brand img{height:36px;width:auto;border-radius:10px}
-    .btn{
-      padding:10px 16px;
-      border-radius:10px;
-      border:1px solid var(--border);
-      background:#fff;
-      font-weight:700;
-      cursor:pointer;
+
+    .brand-title { font-size: 18px; font-weight: 700; line-height: 1.1; }
+    .nav { display: flex; gap: 28px; color: var(--muted); font-size: 14px; font-weight: 500; }
+    .nav a:hover { color: var(--purple); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      border: 0;
+      cursor: pointer;
+      white-space: nowrap;
     }
-    .btn.primary{background:var(--purple);border-color:var(--purple);color:#fff}
 
-    section{padding:28px 0;border-top:1px solid var(--border)}
-    section:first-of-type{border-top:none}
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--purple), var(--purple-3));
+      box-shadow: 0 18px 40px rgba(109, 40, 217, .26);
+    }
+    .btn-secondary {
+      color: var(--purple);
+      background: #fff;
+      border: 1px solid rgba(109, 40, 217, .18);
+    }
 
-    h1{font-size:36px;line-height:1.15;margin:0 0 8px}
-    h2{font-size:24px;margin:0 0 10px}
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 86% 10%, rgba(139, 92, 246, .25), transparent 34%),
+        radial-gradient(circle at 5% 25%, rgba(109, 40, 217, .12), transparent 32%),
+        var(--purple-soft);
+    }
 
-    .lead{color:var(--muted);max-width:900px;margin:0}
-    .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
-    ul{margin:10px 0 0;padding-left:18px}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: 60px;
+      padding: 72px 0 88px;
+    }
 
-    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px}
-    footer .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    footer a{color:var(--purple);text-decoration:none;font-weight:700}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(109, 40, 217, .16);
+      color: var(--purple);
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-    @media(max-width:900px){h1{font-size:30px}}
+    h1 {
+      margin: 22px 0 0;
+      max-width: 720px;
+      font-size: clamp(40px, 5.4vw, 66px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    h1 strong { color: var(--purple); }
+    h2 {
+      margin: 12px 0 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.14;
+      letter-spacing: -0.03em;
+    }
+
+    h3 { margin: 0; font-size: 20px; line-height: 1.25; }
+    .lead { margin: 22px 0 0; max-width: 640px; color: var(--muted); font-size: 19px; }
+
+    .hero-actions, .store-row, .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-actions { margin-top: 36px; }
+    .store-row { margin-top: 16px; gap: 12px; }
+
+    .store-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(109, 40, 217, .13);
+      color: #111827;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 10px 24px rgba(17, 24, 39, .05);
+    }
+
+    .store-link small { display: block; color: var(--muted); font-weight: 500; font-size: 11px; line-height: 1.1; }
+    .store-icon { font-size: 22px; line-height: 1; }
+
+    .hero-card-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 520px;
+    }
+
+    .hero-blob {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(109,40,217,.20), rgba(139,92,246,.08));
+      filter: blur(4px);
+    }
+
+    .scan-card {
+      position: relative;
+      width: min(420px, 92vw);
+      padding: 28px;
+      border-radius: 34px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(109, 40, 217, .12);
+      box-shadow: var(--shadow);
+    }
+
+    .scan-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      color: var(--purple);
+      background: #EEE8FF;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .url-box {
+      margin-top: 22px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid #E5E7EB;
+      background: #F8FAFC;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .safe-result {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 18px;
+      background: #F5F3FF;
+      color: #4C1D95;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .strip-card {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 24px;
+      border-radius: 30px;
+      background: #fff;
+      border: 1px solid rgba(109, 40, 217, .10);
+      box-shadow: 0 18px 50px rgba(17, 24, 39, .06);
+      margin-top: -36px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .strip-item {
+      padding: 18px;
+      border-radius: 20px;
+      background: #F5F3FF;
+      color: #4C1D95;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .section-label {
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+    }
+
+    .section-intro { max-width: 760px; }
+    .section-text { margin-top: 16px; color: var(--muted); font-size: 17px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .cards-top { margin-top: 44px; }
+
+    .card {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid rgba(109, 40, 217, .10);
+      box-shadow: 0 14px 38px rgba(17, 24, 39, .05);
+    }
+
+    .card-soft { background: var(--purple-light); border-color: #E5E7EB; }
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: var(--purple);
+      background: #EEE8FF;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card p, .card li { color: var(--muted); font-size: 14.5px; }
+    .card p { margin: 12px 0 0; }
+    ul { margin: 14px 0 0; padding-left: 20px; }
+
+    .highlight {
+      color: #fff;
+      border-radius: 34px;
+      padding: 46px;
+      background: linear-gradient(135deg, #1A1230, #431783 78%);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .highlight .section-label { color: #C4B5FD; }
+    .highlight .section-text { color: rgba(255,255,255,.78); }
+    .point-list { display: grid; gap: 14px; }
+    .point {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .cta {
+      padding: 52px 32px;
+      text-align: center;
+      color: #fff;
+      border-radius: 34px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-3));
+      box-shadow: var(--shadow);
+    }
+
+    .cta p { color: #F3E8FF; max-width: 780px; margin: 16px auto 0; }
+    .cta-actions { justify-content: center; margin-top: 30px; }
+
+    .footer {
+      padding: 44px 0 52px;
+      background: #fff;
+      border-top: 1px solid rgba(109, 40, 217, 0.10);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 36px;
+      padding-top: 24px;
+      border-top: 1px solid #E5E7EB;
+    }
+
+    .footer-company {
+      color: #6B7280;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .footer-company strong {
+      display: block;
+      color: #5F6368;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .footer-company a, .footer-links a { color: var(--purple); font-weight: 800; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      color: #9CA3AF;
+      font-size: 15px;
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .highlight { grid-template-columns: 1fr; }
+      .hero-card-wrap { min-height: auto; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .strip-card { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 32px, 1180px); }
+      .nav { display: none; }
+      .header .btn-primary { padding: 12px 16px; }
+      .hero-grid { padding: 48px 0 72px; gap: 36px; }
+      .section { padding: 56px 0; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .highlight { padding: 30px 22px; }
+      .hero-actions .btn, .store-link { width: 100%; }
+      .store-link { justify-content: center; }
+      .footer-inner { flex-direction: column; gap: 18px; }
+      .footer-links { justify-content: flex-start; text-align: left; }
+    }
   </style>
 </head>
 
 <body>
-<div class="container">
-
-<header>
-  <a class="brand" href="index.html">
-    <img src="https://github.com/Webwise-Labs/webwise/blob/main/images/Logo.png?raw=true" alt="Webwise VPN Logo">
-    <span>Webwise VPN</span>
-  </a>
-  <button class="btn primary" onclick="openComingSoon()">Download Webwise</button>
-</header>
-
-<section>
-  <h1>Safe Browsing</h1>
-  <p class="lead">AI-powered link scanning that checks URLs before they open to protect you from scams.</p>
-</section>
-
-<section>
-  <h2>What is Safe Browsing?</h2>
-  <p class="lead">Webwise Safe Browsing helps protect you from scams and unsafe websites by checking links before they open. If a link looks risky, Webwise blocks it instantly so you can browse with confidence.</p>
-  <div class="card" style="margin-top:14px;">
-    <b>No URL logs are stored.</b>
-    <p class="lead" style="margin-top:6px;">We don’t keep a history of the links you scan. We only track anonymous totals like how many unsafe links were blocked.</p>
-  </div>
-</section>
-
-<section>
-  <h2>How it works</h2>
-  <p class="lead">When Safe Browsing is enabled, Webwise checks the URL you click using our threat detection engine. If the link is safe, it opens in your preferred browser. If it’s unsafe, Webwise blocks it and shows a warning.</p>
-  <ul>
-    <li>You tap a link from any app</li>
-    <li>Webwise captures the URL and runs a safety check</li>
-    <li>If safe, it opens in your preferred browser</li>
-    <li>If unsafe, it is blocked and you’re alerted</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Can I try it for free?</h2>
-  <p class="lead">Yes. After a successful sign-in, you get <b>10 free scans</b> so you can see Safe Browsing protecting you from scams before purchasing a plan.</p>
-</section>
-
-<section>
-  <h2>What permissions does it need on my phone?</h2>
-  <p class="lead">Nothing private. Webwise only takes browser permission so it can capture the URL when you click from any app, run threat analysis, and then open it in your preferred browser.</p>
-  <ul>
-    <li>No other personal information is stored</li>
-    <li>No URL logs are stored</li>
-    <li>We only record total counts of blocked unsafe links</li>
-  </ul>
-</section>
-
-<section>
-  <h2>How to turn off Safe Browsing</h2>
-  <p class="lead">Change the default browser to your preferred browser and Webwise will not check the safety of URLs you click.</p>
-</section>
-
-<footer>
-  <div class="row">
-    <div>
-      <b>Webwise Labs LLC</b><br>
-      Gould St Ste R, Sheridan, Wyoming, USA<br>
-      <a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-title">Webwise VPN</div>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="secure-vpn.html">Secure VPN</a>
+        <a href="safe-browsing.html">Safe Browsing</a>
+        <a href="threat-protection.html">Threat Protection</a>
+      </nav>
+      <a class="btn btn-primary" href="#download">Download Webwise</a>
     </div>
-    <div>
-      <a href="secure-vpn.html">Secure VPN</a> ·
-      <a href="safe-browsing.html">Safe Browsing</a> ·
-      <a href="threat-protection.html">Threat Protection</a> ·
-      <a href="privacy.html">Privacy Policy</a> ·
-      <a href="terms.html">Terms</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Safe Browsing for Android & iOS</div>
+          <h1>Scan links for <strong>scams, phishing,</strong> and unsafe websites.</h1>
+          <p class="lead">Webwise Safe Browsing checks links before they open, helping protect you from risky pages, deceptive websites, and suspicious URLs.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#download">Download Webwise</a>
+            <a class="btn btn-secondary" href="#how-it-works">How it works</a>
+          </div>
+
+          <div class="store-row" aria-label="Download Webwise apps">
+            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.webwisevpn" target="_blank" rel="noopener">
+              <span class="store-icon">▶</span>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+            <a class="store-link" href="https://apps.apple.com/us/app/webwise-vpn-fast-secure/id6760970114" target="_blank" rel="noopener">
+              <span class="store-icon"></span>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card-wrap">
+          <div class="hero-blob"></div>
+          <div class="scan-card">
+            <div class="scan-icon">🔗</div>
+            <h3>Real-time link safety check</h3>
+            <p class="section-text">Paste or open a URL with Webwise and get a clear warning before risky pages load.</p>
+            <div class="url-box">https://example-link.com</div>
+            <div class="safe-result">✓ Link scan completed — no threat found</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="strip-card">
+        <div class="strip-item">Detects scams and phishing links</div>
+        <div class="strip-item">Checks links before risky pages open</div>
+        <div class="strip-item">No URL history stored</div>
+      </div>
     </div>
-  </div>
-</footer>
 
-</div>
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-intro">
+          <div class="section-label">What is Safe Browsing?</div>
+          <h2>A safer way to open links on your phone.</h2>
+          <p class="section-text">Webwise Safe Browsing helps protect you from scams and unsafe websites by checking links before they open. If a link looks risky, Webwise blocks it or warns you so you can avoid the page.</p>
+        </div>
 
-<script>
-function openComingSoon(){
-  alert("Coming soon");
-}
-</script>
+        <div class="grid-3 cards-top">
+          <div class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Scam protection</h3>
+            <p>Helps detect deceptive pages, suspicious URLs, and unsafe websites before you continue.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Real-time checks</h3>
+            <p>Runs a safety check quickly so you can decide whether to open or avoid a link.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔒</div>
+            <h3>Privacy-friendly</h3>
+            <p>Webwise does not store URL logs. We only track anonymous totals such as unsafe links blocked.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="how-it-works" class="section">
+      <div class="container">
+        <div class="highlight">
+          <div>
+            <div class="section-label">How it works</div>
+            <h2>Smart link checks, designed for Android and iOS.</h2>
+            <p class="section-text">On Android, Webwise can be set as the default browser so links from apps are automatically checked before opening in your preferred browser. On iOS, Safe Browsing works through a simple URL check flow where you paste a link into Webwise to scan it before opening.</p>
+          </div>
+          <div class="point-list">
+            <div class="point">Android: set Webwise as default browser for automatic link scanning</div>
+            <div class="point">iOS: paste a URL into Webwise to check whether it is safe</div>
+            <div class="point">Safe links can be opened in your preferred browser</div>
+            <div class="point">Unsafe links are blocked or flagged with a clear warning</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="container">
+        <div class="grid-2">
+          <div class="card card-soft">
+            <h3>Can I try it for free?</h3>
+            <p>Yes, you get <strong>10 free scans</strong> so you can see Safe Browsing protecting you from scams before purchasing a plan.</p>
+          </div>
+          <div class="card card-soft">
+            <h3>What permissions does it need?</h3>
+            <p>On Android, Webwise uses browser handling permission so it can capture the URL, run threat analysis, and then open safe links in your preferred browser. On iOS, you can paste links directly into Webwise to check them without changing your default browser.</p>
+          </div>
+          <div class="card card-soft">
+            <h3>No URL logs are stored</h3>
+            <p>We don’t keep a history of the links you scan. We only record anonymous totals like how many unsafe links were blocked.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="section" style="padding-top:0">
+      <div class="container">
+        <div class="cta">
+          <h2>Try Webwise Safe Browsing on your phone.</h2>
+          <p>Scan links for scams, phishing, and unsafe websites on Android and iOS.</p>
+          <div class="cta-actions">
+            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.webwisevpn" target="_blank" rel="noopener">
+              <span class="store-icon">▶</span>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+            <a class="store-link" href="https://apps.apple.com/us/app/webwise-vpn-fast-secure/id6760970114" target="_blank" rel="noopener">
+              <span class="store-icon"></span>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-company">
+        <strong>Webwise Labs LLC</strong>
+        30N, Gould St Ste R, Sheridan, Wyoming, USA<br>
+        <a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a>
+      </div>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="https://webwiselabs.com/secure-vpn.html">Secure VPN</a><span>·</span>
+        <a href="https://webwiselabs.com/safe-browsing.html">Safe Browsing</a><span>·</span>
+        <a href="https://webwiselabs.com/threat-protection.html">Threat Protection</a><span>·</span>
+        <a href="https://webwiselabs.com/privacy.html">Privacy Policy</a><span>·</span>
+        <a href="https://webwiselabs.com/terms.html">Terms</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>
