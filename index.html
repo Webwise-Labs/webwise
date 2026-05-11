@@ -1,206 +1,678 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="facebook-domain-verification" content="re02s74av6kudk7h08q6b77r02igpg" />
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Webwise VPN – Be wise on the web</title>
-  <meta name="description" content="Webwise VPN: protection, privacy and safe browsing for your phone. Unlimited VPN, Safe Browsing and Threat Protection." />
-  <link rel="canonical" href="https://webwiselabs.com/" />
-  <meta name="robots" content="index,follow" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webwise VPN - Fast & Secure Mobile VPN</title>
+  <meta name="description" content="Download Webwise VPN for Android and iPhone. Fast, secure mobile VPN with Safe Browsing, Threat Protection, WireGuard protocol, and ChaCha20 encryption." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --purple:#6F2FFF;
-      --orange:#FF6230;
-      --text:#111;
-      --muted:#666;
-      --border:#EFEFF6;
-      --max:1100px;
+    :root {
+      --purple: #6D28D9;
+      --purple-2: #7C3AED;
+      --purple-3: #8B5CF6;
+      --purple-dark: #25124D;
+      --purple-soft: #F7F3FF;
+      --purple-light: #FCFAFF;
+      --text: #111827;
+      --muted: #536079;
+      --border: #E5E7EB;
+      --white: #FFFFFF;
+      --shadow: 0 24px 70px rgba(109, 40, 217, 0.18);
+      --radius: 28px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      background:linear-gradient(180deg,#fff 0%, #FBFBFF 100%);
-      color:var(--text);
-      line-height:1.55;
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      background: var(--purple-soft);
+      line-height: 1.6;
     }
-    .container{max-width:var(--max);margin:0 auto;padding:24px}
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:16px 0;
-      flex-wrap:wrap;
-      gap:12px;
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 72px 0; }
+    .section-white { background: var(--white); }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 243, 255, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(109, 40, 217, 0.08);
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:800;
-      font-size:18px;
-      text-decoration:none;
-      color:inherit;
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
     }
-    .brand img{height:36px;width:auto;border-radius:10px}
 
-    .btn{
-      padding:10px 16px;
-      border-radius:10px;
-      border:1px solid var(--border);
-      background:#fff;
-      font-weight:700;
-      cursor:pointer;
-      text-decoration:none;
+    .brand-title { font-size: 18px; font-weight: 700; line-height: 1.1; }
+    .nav { display: flex; gap: 28px; color: var(--muted); font-size: 14px; font-weight: 500; }
+    .nav a:hover { color: var(--purple); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      border: 0;
+      cursor: pointer;
+      white-space: nowrap;
     }
-    .btn.primary{background:var(--purple);border-color:var(--purple);color:#fff}
 
-    .hero{padding:32px 0 20px}
-    h1{font-size:42px;line-height:1.15;margin:0 0 8px}
-    .lead{color:var(--muted);max-width:850px}
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--purple), var(--purple-3));
+      box-shadow: 0 18px 40px rgba(109, 40, 217, .26);
+    }
+    .btn-secondary {
+      color: var(--purple);
+      background: #fff;
+      border: 1px solid rgba(109, 40, 217, .18);
+    }
+    .btn-dark { color: #fff; background: var(--purple-dark); }
 
-    .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .tag{padding:8px 14px;border-radius:999px;border:1px solid var(--border);background:#fff;font-weight:700}
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 86% 10%, rgba(139, 92, 246, .25), transparent 34%),
+        radial-gradient(circle at 5% 25%, rgba(109, 40, 217, .12), transparent 32%),
+        var(--purple-soft);
+    }
 
-    section{padding:28px 0;border-top:1px solid var(--border)}
-    section:first-of-type{border-top:none}
-    h2{font-size:26px;margin:0 0 10px}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: 60px;
+      padding: 72px 0 88px;
+    }
 
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
-    .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(109, 40, 217, .16);
+      color: var(--purple);
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-    /* Premium FAQ */
-    .faq details{border:1px solid var(--border);border-radius:14px;padding:14px 16px;background:#fff;margin-bottom:12px}
-    .faq summary{font-weight:700;cursor:pointer;list-style:none;position:relative;padding-right:24px}
-    .faq summary::-webkit-details-marker{display:none}
-    .faq summary::after{content:"›";position:absolute;right:0;top:0;transform:rotate(90deg);font-size:20px;color:var(--purple);transition:transform .2s ease}
-    .faq details[open] summary::after{transform:rotate(-90deg)}
-    .faq details p{margin-top:10px}
+    h1 {
+      margin: 22px 0 0;
+      max-width: 680px;
+      font-size: clamp(40px, 5.4vw, 66px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      
+    }
 
-    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px}
-    footer .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    footer a{color:var(--purple);text-decoration:none;font-weight:700}
+    h1 strong { color: var(--purple); }
+    h2 {
+      margin: 12px 0 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.14;
+      letter-spacing: -0.03em;
+    }
 
-    @media(max-width:900px){h1{font-size:34px}.grid{grid-template-columns:1fr}}
+    h3 { margin: 0; font-size: 20px; line-height: 1.25; }
+    .lead { margin: 22px 0 0; max-width: 600px; color: var(--muted); font-size: 19px; }
+
+    .pill-row, .hero-actions, .store-row, .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .pill-row { margin-top: 30px; }
+    .hero-actions { margin-top: 36px; }
+    .store-row { margin-top: 16px; gap: 12px; }
+
+    .pill {
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: #fff;
+      color: #344054;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid rgba(109, 40, 217, .11);
+      box-shadow: 0 10px 26px rgba(17, 24, 39, .05);
+    }
+
+    .store-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(109, 40, 217, .13);
+      color: #111827;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 10px 24px rgba(17, 24, 39, .05);
+    }
+
+    .store-link small { display: block; color: var(--muted); font-weight: 500; font-size: 11px; line-height: 1.1; }
+    .store-icon { font-size: 22px; line-height: 1; }
+
+    .hero-image-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 620px;
+    }
+
+    .hero-blob {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(109,40,217,.20), rgba(139,92,246,.08));
+      filter: blur(4px);
+    }
+
+    .app-screenshot {
+      position: relative;
+      width: min(376px, 92vw);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.8);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .app-screenshot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .stats-strip { margin-top: -36px; position: relative; z-index: 2; }
+    .strip-card {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 24px;
+      border-radius: 30px;
+      background: #fff;
+      border: 1px solid rgba(109, 40, 217, .10);
+      box-shadow: 0 18px 50px rgba(17, 24, 39, .06);
+    }
+
+    .strip-item {
+      padding: 18px;
+      border-radius: 20px;
+      background: #F5F3FF;
+      color: #4C1D95;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .section-label {
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+    }
+
+    .section-intro { max-width: 760px; }
+    .section-text { margin-top: 16px; color: var(--muted); font-size: 17px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .cards-top { margin-top: 44px; }
+
+    .card {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid rgba(109, 40, 217, .10);
+      box-shadow: 0 14px 38px rgba(17, 24, 39, .05);
+    }
+
+    .card-soft { background: var(--purple-light); border-color: #E5E7EB; }
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: var(--purple);
+      background: #EEE8FF;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card p { margin: 12px 0 0; color: var(--muted); font-size: 14.5px; }
+
+    .feature-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .highlight {
+      color: #fff;
+      border-radius: 34px;
+      padding: 46px;
+      background: linear-gradient(135deg, #1A1230, #431783 78%);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .highlight .section-label { color: #C4B5FD; }
+    .highlight .section-text { color: rgba(255,255,255,.78); }
+    .point-list { display: grid; gap: 14px; }
+    .point {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--purple);
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .faq-wrap { max-width: 940px; }
+    details.card { padding: 24px 28px; }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    .plus { color: var(--purple); font-size: 28px; transition: transform .2s ease; }
+    details[open] .plus { transform: rotate(45deg); }
+
+    .cta {
+      padding: 52px 32px;
+      text-align: center;
+      color: #fff;
+      border-radius: 34px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-3));
+      box-shadow: var(--shadow);
+    }
+
+    .cta p { color: #F3E8FF; max-width: 780px; margin: 16px auto 0; }
+    .cta-actions { justify-content: center; margin-top: 30px; }
+
+    .footer {
+      padding: 44px 0 52px;
+      background: #fff;
+      border-top: 1px solid rgba(109, 40, 217, 0.10);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 36px;
+      padding-top: 24px;
+      border-top: 1px solid #E5E7EB;
+    }
+
+    .footer-company {
+      color: #6B7280;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .footer-company strong {
+      display: block;
+      color: #5F6368;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .footer-company a, .footer-links a { color: var(--purple); font-weight: 800; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      color: #9CA3AF;
+      font-size: 15px;
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .feature-layout, .highlight { grid-template-columns: 1fr; }
+      .hero-image-wrap { min-height: auto; }
+      .grid-4, .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .strip-card { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 32px, 1180px); }
+      .nav { display: none; }
+      .header .btn-primary { padding: 12px 16px; }
+      .hero-grid { padding: 48px 0 72px; gap: 36px; }
+      .section { padding: 56px 0; }
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .highlight { padding: 30px 22px; }
+      .app-screenshot { width: min(320px, 92vw); }
+      .hero-actions .btn, .store-link { width: 100%; }
+      .store-link { justify-content: center; }
+      .footer-inner { flex-direction: column; gap: 18px; }
+      .footer-links { justify-content: flex-start; text-align: left; }
+    }
   </style>
 </head>
-
 <body>
-<div class="container">
-
-<header>
-  <a class="brand" href="index.html">
-    <img src="https://github.com/Webwise-Labs/webwise/blob/main/images/Logo.png?raw=true" alt="Webwise VPN Logo">
-    <span>Webwise VPN</span>
-  </a>
-<a
-  class="btn primary"
-  href="https://play.google.com/store/apps/details?id=com.webwisevpn"
-  target="_blank"
-  rel="noopener"
->
-  Download Webwise
-</a></header>
-
-<section class="hero">
-  <h1>Be wise on the web with Webwise VPN</h1>
-  <p class="lead">All-in protection &amp; privacy suite for your phone</p>
-  <div class="tags">
-    <div class="tag">Unlimited VPN</div>
-    <div class="tag">Safe Browsing</div>
-    <div class="tag">Threat Protection</div>
-  </div>
-</section>
-
-<section>
-  <h2>What’s a VPN?</h2>
-  <p class="lead">
-    A VPN (Virtual Private Network) encrypts your internet connection and routes it through a secure server.
-    This protects your privacy, especially on public Wi-Fi, and helps reduce tracking.
-  </p>
-</section>
-
-<section>
-  <h2>Why Webwise VPN?</h2>
-  <div class="grid">
-    <div class="card"><b>Unlimited &amp; Global VPN</b><br>Servers across regions for privacy and freedom.</div>
-    <div class="card"><b>Ultra-fast streaming</b><br>Optimized for speed and stable connections.</div>
-    <div class="card"><b>Up to 10 devices</b><br>Protect multiple devices with one plan.</div>
-    <div class="card"><b>Safe Browsing</b><br>Scan links before they open to avoid scams.</div>
-    <div class="card"><b>Threat Protection</b><br>Blocks phishing, malware, ads &amp; trackers.</div>
-    <div class="card"><b>Premium Support</b><br>Help whenever you need it.</div>
-  </div>
-
-  <div style="margin-top:18px">
-    <a
-  class="btn primary"
-  href="https://play.google.com/store/apps/details?id=com.webwisevpn"
-  target="_blank"
-  rel="noopener"
->
-  Download Now
-</a>
-  </div>
-</section>
-
-<section class="faq">
-  <h2>Frequently Asked Questions</h2>
-
-  <details>
-    <summary>Is there a free plan?</summary>
-    <p class="lead">Yes. You can get free VPN sessions daily by watching an ad so you can see Webwise VPN in action before upgrading to unlock all premium features.</p>
-  </details>
-
-  <details>
-    <summary>Do you store any logs?</summary>
-    <p class="lead">No. Webwise follows a strict no-logs policy and does not store VPN traffic or any of your browsing activity.</p>
-  </details>
-
-  <details>
-    <summary>Will Webwise affect my internet?</summary>
-    <p class="lead">A VPN may slightly affect speed, but Webwise is optimized for fast, stable connections. Choosing a nearby server usually gives the best performance.</p>
-  </details>
-
-  <details>
-    <summary>Why should I pay for a VPN service?</summary>
-    <p class="lead">Better services come at a price. You're more likely to encounter sluggish connections and inadequate security with free VPN providers since they can't compete with the level of service quality and internet security that a paid provider can supply. If you use an always-free VPN, its designers have to generate money somehow, so they may shower you with advertisements, track and sell your data, or even exploit your device to route other people’s traffic through – a reliable paid VPN company won’t. You may browse with more online privacy and without worrying about data or bandwidth limits when you use Webwise VPN since you can be confident that your personal information is secure thanks to state-of-the-art encryption.</p>
-  </details>
-
-  <details>
-    <summary>What encryption is used by Webwise?</summary>
-    <p class="lead">Webwise is built with secure and modern WireGuard® protocol, using ChaCha20 encryption which is widely recognized as strongest encryption protocol and used by military institutions, governments and cybersecurity professionals around the world.</p>
-  </details>
-   <details>
-    <summary>Which devices are currently supported by Webwise?</summary>
-    <p class="lead">Webwise is currently available on Play Store for Android devices and can be used on smartphones or tablets. Our iOS app for App Store is currently in development and will be available soon..</p>
-  </details>
-</section>
-
-<footer>
-  <div class="row">
-    <div>
-      <b>Webwise Labs LLC</b><br>
-      Gould St Ste R, Sheridan, Wyoming, USA<br>
-      <a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <div class="brand-title">Webwise VPN</div>
+      </a>
+      <nav class="nav">
+        <a href="#benefits">Benefits</a>
+        <a href="#features">Features</a>
+        <a href="#setup">How it works</a>
+        <a href="#faq">FAQs</a>
+      </nav>
+      <a class="btn btn-primary js-smart-download" href="https://play.google.com/store/apps/details?id=com.webwisevpn">Download Webwise</a>
     </div>
-    <div>
-      <a href="secure-vpn.html">Secure VPN</a> ·
-      <a href="safe-browsing.html">Safe Browsing</a> ·
-      <a href="threat-protection.html">Threat Protection</a> ·
-      <a href="privacy.html">Privacy Policy</a> ·
-      <a href="terms.html">Terms</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Fast &amp; Secure VPN Protection</div>
+          <h1>A mobile VPN built for <strong>privacy, speed,</strong> and safer browsing.</h1>
+          <p class="lead">Download a fast and secure VPN for your smartphone. Webwise helps protect your connection, scan links for scams and phishing, and block unsafe content across apps and sites.</p>
+
+          <div class="pill-row">
+            <div class="pill">Android &amp; iPhone</div>
+            <div class="pill">Global VPN locations</div>
+            <div class="pill">Phishing & Scam Protection</div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary js-smart-download" href="https://play.google.com/store/apps/details?id=com.webwisevpn">Download Webwise</a>
+            <a class="btn btn-secondary" href="#features">Explore features</a>
+          </div>
+
+          <div class="store-row" aria-label="Download Webwise apps">
+            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.webwisevpn" target="_blank" rel="noopener">
+              <span class="store-icon">▶</span>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+            <a class="store-link" href="https://apps.apple.com/us/app/webwise-vpn-fast-secure/id6760970114" target="_blank" rel="noopener">
+              <span class="store-icon"></span>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image-wrap">
+          <div class="hero-blob"></div>
+          <div class="app-screenshot">
+            <img src="webwise-app-screenshot.png" alt="Webwise VPN mobile app showing Secure VPN, Safe Browsing, and Threat Protection enabled" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container stats-strip">
+      <div class="strip-card">
+        <div class="strip-item">Secure VPN with fast servers</div>
+        <div class="strip-item">Safe Browsing for scams and phishing</div>
+        <div class="strip-item">Threat Protection across apps and sites</div>
+      </div>
     </div>
-  </div>
-</footer>
 
-</div>
+    <section id="benefits" class="section">
+      <div class="container">
+        <div class="section-intro">
+          <div class="section-label">Why use Webwise on mobile</div>
+          <h2>Protection that fits how people actually use their phones.</h2>
+          <p class="section-text">From public Wi‑Fi to everyday browsing, Webwise gives you privacy and security tools that stay simple, useful, and always within reach.</p>
+        </div>
 
+        <div class="grid-4 cards-top">
+          <div class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Secure your connection</h3>
+            <p>Protect your browsing when you connect at airports, cafés, hotels, and other shared networks.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔗</div>
+            <h3>Scan links for scams</h3>
+            <p>Safe Browsing checks links in real time and warns you when a destination may be unsafe.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🚫</div>
+            <h3>Block unsafe content</h3>
+            <p>Threat Protection helps block unsafe content, trackers, and intrusive ads across apps and websites.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Global VPN locations</h3>
+            <p>Connect to premium global VPN locations and enjoy more freedom to browse, stream, and access content securely.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section section-white">
+      <div class="container feature-layout">
+        <div>
+          <div class="section-label">Core features</div>
+          <h2>One app for VPN, link safety, and threat protection.</h2>
+          <p class="section-text">Webwise focuses on the protections people need most on mobile: a secure connection, safer links, tracker blocking, and simple controls.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card card-soft">
+            <h3>Secure VPN</h3>
+            <p>Connect to premium global VPN locations and keep your browsing private on Wi‑Fi and mobile data.</p>
+          </div>
+          <div class="card card-soft">
+            <h3>Safe Browsing</h3>
+            <p>Scan links for scams and phishing, with real-time warnings before risky pages open.</p>
+          </div>
+          <div class="card card-soft">
+            <h3>Threat Protection</h3>
+            <p>Block unsafe content on apps and sites, including common trackers and intrusive ads.</p>
+          </div>
+          <div class="card card-soft">
+            <h3>Access Content</h3>
+            <p>Stream your favourite content anywhere, anytime with secure VPN access designed for everyday mobile use.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="highlight">
+          <div>
+            <div class="section-label">Built for modern mobile protection</div>
+            <h2>Fast protocol. Strong encryption. Helpful safety layers.</h2>
+            <p class="section-text">Webwise uses WireGuard with ChaCha20 encryption for secure and efficient VPN protection. Safe Browsing scans links in real time, while Threat Protection blocks unsafe content across apps and sites.</p>
+          </div>
+          <div class="point-list">
+            <div class="point">WireGuard protocol for quick, lightweight VPN connections</div>
+            <div class="point">ChaCha20 encryption for strong modern mobile security</div>
+            <div class="point">Safe Browsing for detecting scams, phishing, and unsafe links</div>
+            <div class="point">Threat Protection for blocking unsafe content, trackers, and intrusive ads</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup" class="section section-white">
+      <div class="container">
+        <div class="section-intro">
+          <div class="section-label">How it works</div>
+          <h2>Get protected in three simple steps.</h2>
+        </div>
+        <div class="grid-3 cards-top">
+          <div class="card">
+            <div class="step-number">1</div>
+            <h3>Download Webwise</h3>
+            <p>Install Webwise from Google Play or the App Store.</p>
+          </div>
+          <div class="card">
+            <div class="step-number">2</div>
+            <h3>Turn on VPN</h3>
+            <p>Connect to a recommended location or choose the location you prefer.</p>
+          </div>
+          <div class="card">
+            <div class="step-number">3</div>
+            <h3>Browse safely</h3>
+            <p>Use Safe Browsing and Threat Protection to avoid risky links and unsafe content.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container faq-wrap">
+        <div style="text-align:center">
+          <div class="section-label">FAQs</div>
+          <h2>Common questions about Webwise VPN</h2>
+        </div>
+        <div class="grid-1 cards-top" style="display:grid; gap:16px;">
+          <details class="card">
+            <summary>Is there a free plan? <span class="plus">+</span></summary>
+            <p>Yes. You can get free VPN sessions daily so you can see Webwise VPN in action before upgrading to unlock all premium features.</p>
+          </details>
+          <details class="card">
+            <summary>Do you store any logs? <span class="plus">+</span></summary>
+            <p>No. Webwise follows a strict no-logs policy and does not store VPN traffic or any of your browsing activity.</p>
+          </details>
+          <details class="card">
+            <summary>What does Safe Browsing do? <span class="plus">+</span></summary>
+            <p>Safe Browsing scans links in real time and warns you if a page looks suspicious, unsafe, or deceptive.</p>
+          </details>
+          <details class="card">
+            <summary>Will Webwise affect my internet? <span class="plus">+</span></summary>
+            <p>A VPN may slightly affect speed, but Webwise is optimized for fast, stable connections. Choosing a nearby server usually gives the best performance.</p>
+          </details>
+          <details class="card">
+            <summary>What does Threat Protection block? <span class="plus">+</span></summary>
+            <p>Threat Protection helps block unsafe content across apps and sites, including common trackers and intrusive ads.</p>
+          </details>
+          <details class="card">
+            <summary>Why should I pay for a VPN service? <span class="plus">+</span></summary>
+            <p>Better services come at a price. You're more likely to encounter sluggish connections and inadequate security with free VPN providers since they can't compete with the level of service quality and internet security that a paid provider can supply. If you use an always-free VPN, its designers have to generate money somehow, so they may shower you with advertisements, track and sell your data, or even exploit your device to route other people’s traffic through. A reliable paid VPN company won’t. You may browse with more online privacy and without worrying about data or bandwidth limits when you use Webwise VPN since you can be confident that your personal information is secure thanks to state-of-the-art encryption.</p>
+          </details>
+          <details class="card">
+            <summary>Which VPN protocol does Webwise use? <span class="plus">+</span></summary>
+            <p>Webwise uses WireGuard with ChaCha20 encryption for fast, secure mobile VPN protection.</p>
+          </details>
+          <details class="card">
+            <summary>Which devices are currently supported by Webwise? <span class="plus">+</span></summary>
+            <p>Webwise is currently available on Google Play and the App Store, and can be used on smartphones and tablets.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="section" style="padding-top:0">
+      <div class="container">
+        <div class="cta">
+          <h2>Download Webwise for your phone.</h2>
+          <p>Secure your connection, scan links for scams and phishing, and block unsafe content across apps and sites.</p>
+          <div class="cta-actions">
+            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.webwisevpn" target="_blank" rel="noopener">
+              <span class="store-icon">▶</span>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+            <a class="store-link" href="https://apps.apple.com/us/app/webwise-vpn-fast-secure/id6760970114" target="_blank" rel="noopener">
+              <span class="store-icon"></span>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-company">
+        <strong>Webwise Labs LLC</strong>
+        30N, Gould St Ste R, Sheridan, Wyoming, USA<br>
+        <a href="mailto:hello@webwiselabs.com">hello@webwiselabs.com</a>
+      </div>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="https://webwiselabs.com/secure-vpn.html">Secure VPN</a><span>·</span>
+        <a href="https://webwiselabs.com/safe-browsing.html">Safe Browsing</a><span>·</span>
+        <a href="https://webwiselabs.com/threat-protection.html">Threat Protection</a><span>·</span>
+        <a href="https://webwiselabs.com/privacy.html">Privacy Policy</a><span>·</span>
+        <a href="https://webwiselabs.com/terms.html">Terms</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const androidUrl = "https://play.google.com/store/apps/details?id=com.webwisevpn";
+    const iosUrl = "https://apps.apple.com/us/app/webwise-vpn-fast-secure/id6760970114";
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const smartLinks = document.querySelectorAll(".js-smart-download");
+
+    smartLinks.forEach((link) => {
+      if (/android/i.test(ua)) {
+        link.href = androidUrl;
+        link.textContent = "Download Webwise";
+      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+        link.href = iosUrl;
+        link.textContent = "Download Webwise";
+      } else {
+        link.href = "#cta";
+        link.textContent = "Download Webwise";
+      }
+    });
+  </script>
 </body>
 </html>
