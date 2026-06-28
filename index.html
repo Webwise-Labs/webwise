@@ -451,11 +451,11 @@
           </div>
 
           <div class="store-row" aria-label="Download Webwise apps">
-            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.webwisevpn" target="_blank" rel="noopener">
+            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.webwisevpn" target="_blank" rel="noopener" onclick="if (typeof gtag === 'function') { gtag('event','download_android'); }">
               <span class="store-icon">▶</span>
               <span><small>Get it on</small>Google Play</span>
             </a>
-            <a class="store-link" href="https://apps.apple.com/us/app/webwise-vpn-fast-secure/id6760970114" target="_blank" rel="noopener">
+            <a class="store-link" href="https://apps.apple.com/us/app/webwise-vpn-fast-secure/id6760970114" target="_blank" rel="noopener"  onclick="if (typeof gtag === 'function') { gtag('event','download_ios'); }>
               <span class="store-icon"></span>
               <span><small>Download on the</small>App Store</span>
             </a>
@@ -634,11 +634,11 @@
           <h2>Download Webwise for your phone.</h2>
           <p>Secure your connection, scan links for scams and phishing, and block unsafe content across apps and sites.</p>
           <div class="cta-actions">
-            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.webwisevpn" target="_blank" rel="noopener">
+            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.webwisevpn" target="_blank" rel="noopener" onclick="if (typeof gtag === 'function') { gtag('event','download_android'); }">
               <span class="store-icon">▶</span>
               <span><small>Get it on</small>Google Play</span>
             </a>
-            <a class="store-link" href="https://apps.apple.com/us/app/webwise-vpn-fast-secure/id6760970114" target="_blank" rel="noopener">
+            <a class="store-link" href="https://apps.apple.com/us/app/webwise-vpn-fast-secure/id6760970114" target="_blank" rel="noopener"  onclick="if (typeof gtag === 'function') { gtag('event','download_ios'); }>
               <span class="store-icon"></span>
               <span><small>Download on the</small>App Store</span>
             </a>
@@ -672,17 +672,31 @@
     const smartLinks = document.querySelectorAll(".js-smart-download");
 
     smartLinks.forEach((link) => {
-      if (/android/i.test(ua)) {
+    if (/Android/i.test(ua)) {
         link.href = androidUrl;
         link.textContent = "Download Webwise";
-      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+
+        link.addEventListener("click", () => {
+            if (typeof gtag === "function") {
+                gtag("event", "download_android");
+            }
+        });
+
+    } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
         link.href = iosUrl;
         link.textContent = "Download Webwise";
-      } else {
+
+        link.addEventListener("click", () => {
+            if (typeof gtag === "function") {
+                gtag("event", "download_ios");
+            }
+        });
+
+    } else {
         link.href = "#cta";
         link.textContent = "Download Webwise";
-      }
-    });
+    }
+});
   </script>
 </body>
 </html>
